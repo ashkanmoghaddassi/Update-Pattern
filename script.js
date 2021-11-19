@@ -136,6 +136,38 @@
         
         */
 
+        d3
+            .selectAll(".bar")
+            .attr("role", "graphics-symbol")
+            .attr("aria-roledescription", "bar element")
+            .attr("tabindex", 0) // make it focusable element
+            .attr("aria-label", d => {
+              return type === "Stores Worldwide"
+                ? `${d.company}'s donation ${parseInt(
+                    d[type] / 1000000
+                  )} million dollars'`
+                : `${d.company} spent ${d[type]} percent of its GDP'`;
+            });
+
+        d3
+            .selectAll("")
+
+
+
+
+        d3
+            .select(".chart")
+            .select("svg")
+            .attr("role", "graphics-document")
+            .attr("aria-roledescription", "bar chart");
+          svg.attr("tabindex", 0);
+          svg.attr(
+            "aria-label",
+            type === "Stores Worldwide"
+              ? "Bar chart showing the number of coffee stores worldwide respective to the company."
+              : "Bar chart showing the coffee company revenue in billions of USD."
+          );
+
             }
         d3.csv('coffee-house-chains.csv',d3.autoType).then(_data=>{
                 rev = 0
